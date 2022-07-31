@@ -12,7 +12,7 @@ var elevatorSagaObject =
 
         // Whenever an elevator floor button is pressed ...
         elevator.on("floor_button_pressed", function(floorNum) {
-            console.log(`Button pressed for floor ${floorNum}`);
+            console.log(`Button pressed for Floor ${floorNum}`);
         });
 
         // Whenever the elevator is idle (has no more queued destinations) ...
@@ -29,19 +29,19 @@ var elevatorSagaObject =
 
         // Queues a floor for the elevator to go to ...
         function goToFloor(floorNum) {
-            console.log(`Go to floor ${floorNum}`);
+            console.log(`Go to Floor ${floorNum}`);
 
             elevator.goToFloor(floorNum);
         };
 
         // Whenever the elevator is about to pass a floor ...
         elevator.on("passing_floor", function(floorNum, direction) {
-            console.log(`Passing floor ${floorNum} going ${direction}`);
+            console.log(`Passing Floor ${floorNum} going ${direction}`);
         });
 
         // Whenever the elevator is stopped ...
         elevator.on("stopped_at_floor", function(floorNum) {
-            console.log(`Stopped on floor ${floorNum}`);
+            console.log(`Stopped on Floor ${floorNum}`);
         });
 
 
@@ -51,12 +51,12 @@ var elevatorSagaObject =
         for (const floor of floors) {
             // Whenever a passenger presses a down button to call the elevator ...
             floor.on("down_button_pressed", function() {
-                console.log(`Down button pressed for ${this.floorNum()}`);
+                console.log(`Down button pressed on Floor ${this.floorNum()}`);
             });
 
             // Whenever a passenger presses an up button to call the elevator ...
             floor.on("up_button_pressed", function() {
-                console.log(`Up button pressed for ${this.floorNum()}`);
+                console.log(`Up button pressed on Floor ${this.floorNum()}`);
             });
         };
     },
