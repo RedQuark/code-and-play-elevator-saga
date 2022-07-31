@@ -15,7 +15,7 @@ var elevatorSagaObject =
 
             // Whenever an elevator floor button is pressed ...
             elevator.on("floor_button_pressed", function(floorNum) {
-                console.log(`Elevator ${elevatorIndex(elevator)} button pressed for Floor ${floorNum}`);
+                console.log(`Elevator ${elevatorIndex(elevator)} button has been pressed for Floor ${floorNum}`);
             });
 
             // Whenever the elevator is idle (has no more queued destinations) ...
@@ -32,12 +32,12 @@ var elevatorSagaObject =
 
             // Whenever the elevator is about to pass a floor ...
             elevator.on("passing_floor", function(floorNum, direction) {
-                console.log(`Elevator ${elevatorIndex(elevator)} passing Floor ${floorNum} going ${direction}`);
+                console.log(`Elevator ${elevatorIndex(elevator)} is passing Floor ${floorNum} going ${direction}`);
             });
 
             // Whenever the elevator is stopped ...
             elevator.on("stopped_at_floor", function(floorNum) {
-                console.log(`Elevator ${elevatorIndex(elevator)} stopped on Floor ${floorNum}`);
+                console.log(`Elevator ${elevatorIndex(elevator)} is stopped on Floor ${floorNum}`);
             });
         }
 
@@ -60,7 +60,7 @@ var elevatorSagaObject =
         // Returns the direction of the destination
         function destinationDirection(elevator) {
             const direction = elevator.destinationDirection();
-            console.log(`Destination director for Elevator ${elevatorIndex(elevator)} is ${direction}`);
+            console.log(`Destination direction for Elevator ${elevatorIndex(elevator)} is ${direction}`);
             return direction;
         }
 
@@ -108,7 +108,7 @@ var elevatorSagaObject =
 
         // Queues a floor for the elevator to go to
         function goToFloor(elevator, floorNum) {
-            console.log(`Elevator ${elevatorIndex(elevator)} go to Floor ${floorNum}`);
+            console.log(`Queue Elevator ${elevatorIndex(elevator)} to go to Floor ${floorNum}`);
             elevator.goToFloor(floorNum);
         };
 
@@ -133,7 +133,7 @@ var elevatorSagaObject =
 
         // Clear the destination queue and stop the elevator
         function stop(elevator) {
-            console.log('Stop Elevator ${elevatorIndex(elevator)} ');
+            console.log('Clear the destination queue for Elevator ${elevatorIndex(elevator) and stop it} ');
             elevator.stop();
         }
 
@@ -144,12 +144,12 @@ var elevatorSagaObject =
         for (const floor of floors) {
             // Whenever a passenger presses a down button to call the elevator ...
             floor.on("down_button_pressed", function() {
-                console.log(`Down button pressed on Floor ${this.floorNum()}`);
+                console.log(`The down button has been pressed on Floor ${this.floorNum()}`);
             });
 
             // Whenever a passenger presses an up button to call the elevator ...
             floor.on("up_button_pressed", function() {
-                console.log(`Up button pressed on Floor ${this.floorNum()}`);
+                console.log(`The up button has been pressed on Floor ${this.floorNum()}`);
             });
         };
     },
